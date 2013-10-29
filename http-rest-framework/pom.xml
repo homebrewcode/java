@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.netapp.rest</groupId>
+	<artifactId>http-rest-framework</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<skip.assembly.plugin>false</skip.assembly.plugin>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Plugin for jar creation -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>jar-with-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+							<skipAssembly>${skip.assembly.plugin}</skipAssembly>
+							<archive>
+								<manifest>
+									<mainClass>com.netapp.ta.customparser.utils.URLBuilder</mainClass>
+									<packageName>com.netapp.ta.customparser.utils</packageName>
+								</manifest>
+								<manifestEntries>
+									<mode>development</mode>
+									<url>${pom.url}</url>
+								</manifestEntries>
+							</archive>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-jar-plugin</artifactId> 
+				<configuration> <archive> <manifest> <mainClass>com.netapp.ta.customparser.utils.URLBuilder</mainClass> 
+				<packageName>com.netapp.ta.customparser.utils</packageName> </manifest> <manifestEntries> 
+				<mode>development</mode> <url>${pom.url}</url> </manifestEntries> </archive> 
+				</configuration> </plugin> -->
+		</plugins>
+	</build>
+</project>
