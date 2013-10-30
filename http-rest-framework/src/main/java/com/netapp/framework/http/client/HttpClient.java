@@ -9,6 +9,7 @@ import com.netapp.framework.url.builder.UrlBuilder;
 
 public abstract class HttpClient {
 
+	private static final String EXCEPTION_MESSAGE="UrlBuilder cannot be null!";
 	private UrlBuilder urlBuilder;
 	
 	public HttpClient(UrlBuilder urlBuilder){
@@ -26,6 +27,7 @@ public abstract class HttpClient {
 	}
 
 	public InputStream getDataFromWire() throws IOException{
+		validateUrlBuilder(urlBuilder);
 		String urlString = sanitizeURL(urlBuilder.buildUrl());
 
 		if(urlString==null){
@@ -45,6 +47,12 @@ public abstract class HttpClient {
 		}
 
 		return sanitizeStream(conn.getInputStream());
+	}
+
+	private void validateUrlBuilder(UrlBuilder urlBuilder) throws IOException {
+		if(urlBuilder==null){
+			throw new IOException(EXCEPTION_MESSAGE);
+		}
 	}
 
 	protected abstract String requestMethod();	

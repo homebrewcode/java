@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.netapp.supportsite.http.client.XmlHttpClient;
-import com.netapp.supportsite.parser.NgsSupportJaxBParser2;
+import com.netapp.supportsite.parser.NgsSupportJaxBParser;
 import com.netapp.supportsite.url.builder.NGSSupportCase;
 
 
@@ -46,7 +46,7 @@ public class TestNgsSupportCaseJaxBParsing {
 		
 	
 		//JAXB Parsing
-		NgsSupportJaxBParser2 jaxBParser = new NgsSupportJaxBParser2();
+		NgsSupportJaxBParser jaxBParser = new NgsSupportJaxBParser();
 		System.out.println(jaxBParser.parseData(is,"UTF-8"));
 	}
 
