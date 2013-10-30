@@ -1,4 +1,4 @@
-package com.netapp.supportsite.parser;
+package com.netapp.framework.parser;
 
 import java.util.LinkedHashMap;
 import java.util.List;

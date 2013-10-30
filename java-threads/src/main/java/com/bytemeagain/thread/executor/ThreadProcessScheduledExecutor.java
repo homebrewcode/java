@@ -3,14 +3,15 @@ package com.bytemeagain.thread.executor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import com.bytemeagain.thread.CallableProcess;
 import com.bytemeagain.thread.RunnableProcess;
 
-public class ThreadProcessExecutor {
+public class ThreadProcessScheduledExecutor {
 
 	/**
 	 * @param args
@@ -18,15 +19,10 @@ public class ThreadProcessExecutor {
 	 * @throws InterruptedException 
 	 */
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		//Fixed thread pool
-		//ExecutorService exe= Executors.newFixedThreadPool(10);
-		
-		//Cached thread pool
-		//ExecutorService exe= Executors.newCachedThreadPool();
-		
+				
 		//Single thread is created
-		ExecutorService exe= Executors.newSingleThreadExecutor();
-		
+		ScheduledExecutorService scheduledExe= Executors.newScheduledThreadPool(10);
+			
 		
 		List<Future<String>> futureList = new ArrayList<Future<String>>();	
 
@@ -35,9 +31,9 @@ public class ThreadProcessExecutor {
 
 			//Some simple round robin algorithm to allocate it to either runnable or callable
 			if(i%2==0){
-				exe.execute(new RunnableProcess());
+				scheduledExe.schedule(new RunnableProcess(),1,TimeUnit.SECONDS);
 			}else{
-				Future<String> temp = exe.submit(new CallableProcess());
+				Future<String> temp = scheduledExe.schedule(new CallableProcess(),10,TimeUnit.SECONDS);
 				futureList.add(temp);
 				//This one piece of code will stop running further till the callable thread is executed
 				//System.out.println(temp.get());
@@ -46,9 +42,9 @@ public class ThreadProcessExecutor {
 		}
 
 		System.out.println(">>>>>>>>>>>>>> Attempting to shutdown the executor");	
-		exe.shutdown();
+		scheduledExe.shutdown();
 
-		if(exe.isShutdown()){
+		if(scheduledExe.isShutdown()){
 			System.out.println(">>>>>>>>>>>>> Executor has been shutdown!!!");
 		}
 		

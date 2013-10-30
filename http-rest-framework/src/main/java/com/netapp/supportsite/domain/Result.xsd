@@ -1,0 +1,74 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MT_GetIObjDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Product">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:int" name="ProductID"/>
+              <xs:element type="xs:string" name="ProductType"/>
+              <xs:element type="xs:string" name="ProductFamily"/>
+              <xs:element name="Attribute">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="SetType"/>
+                    <xs:element type="xs:string" name="AttrID"/>
+                    <xs:element type="xs:string" name="AttrValue"/>
+                    <xs:element type="xs:string" name="SiteValue"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="ProductLine"/>
+              <xs:element type="xs:int" name="SystemID"/>
+              <xs:element type="xs:string" name="OSVersion"/>
+              <xs:element type="xs:byte" name="NumberOfShelves"/>
+              <xs:element type="xs:byte" name="NumberOfDisks"/>
+              <xs:element type="xs:string" name="DispatchEngineer"/>
+              <xs:element type="xs:int" name="SerialNumber"/>
+              <xs:element type="xs:string" name="ModelNumber"/>
+              <xs:element type="xs:string" name="PartDescription"/>
+              <xs:element type="xs:int" name="DateShipped"/>
+              <xs:element type="xs:string" name="RoHSComplianceFlag"/>
+              <xs:element type="xs:string" name="HardwareServiceLevel"/>
+              <xs:element type="xs:byte" name="LastInspectionDate"/>
+              <xs:element type="xs:int" name="ASPPartnerID"/>
+              <xs:element type="xs:int" name="OwnerCustomerID"/>
+              <xs:element type="xs:string" name="OwnerCustomerName"/>
+              <xs:element type="xs:int" name="InstalledAtSiteID"/>
+              <xs:element type="xs:string" name="InstalledAtSiteName"/>
+              <xs:element type="xs:string" name="Secure"/>
+              <xs:element name="Addresses" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="AddressType"/>
+                    <xs:element type="xs:string" name="AddressCompany"/>
+                    <xs:element type="xs:string" name="Address1"/>
+                    <xs:element type="xs:string" name="Address2" minOccurs="0"/>
+                    <xs:element type="xs:string" name="AddressCity"/>
+                    <xs:element type="xs:string" name="AddressState"/>
+                    <xs:element type="xs:int" name="AddressZip"/>
+                    <xs:element type="xs:string" name="AddressCountry"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Contacts" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="PartnerFunction"/>
+                    <xs:element type="xs:int" name="ContactID"/>
+                    <xs:element type="xs:string" name="ContactFirstName"/>
+                    <xs:element type="xs:string" name="ContactLastName"/>
+                    <xs:element type="xs:string" name="ContactPhone"/>
+                    <xs:element type="xs:string" name="ContactEmail"/>
+                    <xs:element type="xs:string" name="ContactUsername" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element type="xs:string" name="EOSPVRFlag"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

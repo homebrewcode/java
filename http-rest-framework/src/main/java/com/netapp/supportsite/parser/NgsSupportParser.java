@@ -10,6 +10,8 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
+import com.netapp.framework.parser.SimpleSaxHandler;
+
 
 public class NgsSupportParser implements com.netapp.framework.parser.SAXParser<Map<String,String>>{
 	private SAXParser saxParser;
