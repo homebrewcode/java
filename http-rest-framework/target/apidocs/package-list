@@ -1,8 +1,0 @@
-com.netapp.framework.http.client
-com.netapp.framework.io.utils
-com.netapp.framework.parser
-com.netapp.framework.url.builder
-com.netapp.supportsite.domain
-com.netapp.supportsite.http.client
-com.netapp.supportsite.parser
-com.netapp.supportsite.url.builder
