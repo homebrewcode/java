@@ -14,6 +14,7 @@ public class TestNgsSupportCaseJaxBParsingFileInput {
 	 * @throws Exception 
 	 */
 	public static void main(String[] args) throws Exception {
+		//Get XML from input source
 		InputStream is = new FileInputStream(new File("src/test/resources/Input.xml"));		
 	
 		//JAXB Parsing

@@ -6,6 +6,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * TBD
+ * 
+ * @author hshashid
+ */
 public class StreamParser {
 	
 	//Amazing!! This rocks :)

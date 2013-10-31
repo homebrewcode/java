@@ -42,6 +42,7 @@ public class TestNgsSupportCaseJaxBParsing {
 		XmlHttpClient xmlHttpClient = new XmlHttpClient(nsgSupportCase, "GET");
 		//Time out defaults to 5s, however it can be overridden
 		xmlHttpClient.setTimeOut(10000);
+		System.out.println("Getting data from the wire..");
 		InputStream is = xmlHttpClient.getDataFromWire();
 		
 	

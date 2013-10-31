@@ -23,10 +23,15 @@ public class NgsSupportParser implements com.netapp.framework.parser.SAXParser<M
 
 	public Map<String, String> parseData(InputStream is,
 			List<String> filterList, boolean appendRequired) throws Exception {
-
-		SimpleSaxHandler saxHandler = new SimpleSaxHandler(filterList,appendRequired);
-		saxParser.parse(is, saxHandler);
-		return saxHandler.getParsedData();		
+		try{
+			SimpleSaxHandler saxHandler = new SimpleSaxHandler(filterList,appendRequired);
+			saxParser.parse(is, saxHandler);
+			return saxHandler.getParsedData();
+		}finally{
+			if(is!=null){
+				is.close();
+			}
+		}
 	}
 
 }

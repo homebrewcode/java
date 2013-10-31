@@ -9,6 +9,15 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * <p>
+ *  SimpleSaxHandler is one of the implementations of DefaultHandler which 
+ *  is used to handle the XML stream of data to convert it into a 
+ *  Map<XMLTag,XMLTagValue>
+ * </p>
+ *  @author <a href="mailto:hshashid@netapp.com">hshashid</a>
+ *
+ */
 public class SimpleSaxHandler extends DefaultHandler{
 
 	private static final String DELIM = ";";
