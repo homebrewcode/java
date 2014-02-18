@@ -45,6 +45,7 @@ public class ThreadProcessExecutor {
 			
 		}
 
+		Thread.sleep(10000);
 		System.out.println(">>>>>>>>>>>>>> Attempting to shutdown the executor");	
 		exe.shutdown();
 
